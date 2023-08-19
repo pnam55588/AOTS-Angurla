@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ToDo } from "../../Models/to-do";
+import { TodoServiceService } from 'src/app/Service/todo-service.service';
 
 
 @Component({
@@ -9,14 +10,14 @@ import { ToDo } from "../../Models/to-do";
 })
 export class ToDoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private todoService: TodoServiceService) { }
 
   @Input()
   public TodoLst: ToDo[] = [];
   public TodoLstTrue: ToDo[] = [];
 
   delete = (event: any, i: ToDo) =>{
-    this.TodoLst.splice(this.TodoLst.indexOf(i), 1);
+    this.todoService.delete(event, this.TodoLst, i.getId);
   }
 
   ngOnInit(): void {
