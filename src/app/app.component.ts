@@ -24,5 +24,6 @@ export class AppComponent implements OnInit{
     ]
     this.TodoLstTrue = this.TodoLst.filter(x => x.getIsComplete == true);
     console.log(this.TodoLstTrue);
+    console.log(this.TodoLstTrue[0].getIsComplete);
   } 
 }
