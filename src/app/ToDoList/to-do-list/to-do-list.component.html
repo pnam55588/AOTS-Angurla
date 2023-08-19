@@ -1,1 +1,29 @@
-<p>to-do-list-component works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Content</th>
+            <th>Is Complete</th>
+            <th>Do some thing</th>
+        </tr>
+        <tr *ngFor = "let i of TodoLst">
+            <td>{{i.getId}}</td>
+            <td>{{i.getName}}</td>
+            <td>{{i.getContent}}</td>
+            <td>{{i.getIsComplete}}</td>
+            <td>
+                <button routerLink="/to-do-detail">update</button>
+                <button (click)="delete($event, i)">delete</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
